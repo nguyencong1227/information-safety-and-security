@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Oct 21 07:20:23 2022
-
-@author: ADMIN
+• Mã hóa từng cặp 2 ký tự liên tiếp nhau.
+• Nếu dư 1 ký tự, thêm ký tự “x” vào cuối.
+• Nếu 2 ký tự nằm cùng dòng, thay thế bằng 2 ký tự tương ứng bên phải. Ký tự ở cột cuối cùng được thay bằng ký tự ở cột đầu tiên.
+• Nếu 2 ký tự nằm cùng cột được thay thế bằng 2 ký tự bên dưới.
+• Ký tự ở hàng cuối cùng được thay thế bằng ký tự ở hàng trên cùng
+• Nếu 2 ký tự lập thành hình chữ nhật được thay thế bằng 2 ký tự tương ứng trên cùng dòng ở hai góc còn lại.
 """
 
 # Python program to implement Playfair Cipher
@@ -162,24 +165,26 @@ def encryptByPlayfairCipher(Matrix, plainList):
 		CipherText.append(cipher)
 	return CipherText
 
+# Driver Code to test the above functions
+def main():
+    text_Plain = 'th em at ch is ov er'
+    text_Plain = removeSpaces(toLowerCase(text_Plain))
+    PlainTextList = Diagraph(FillerLetter(text_Plain))
+    if len(PlainTextList[-1]) != 2:
+    	PlainTextList[-1] = PlainTextList[-1]+'z'
+    
+    key = "Home"
+    print("Key text:", key)
+    key = toLowerCase(key)
+    Matrix = generateKeyTable(key, list1)
+    
+    print("Plain Text:", text_Plain)
+    CipherList = encryptByPlayfairCipher(Matrix, PlainTextList)
+    
+    CipherText = ""
+    for i in CipherList:
+    	CipherText += i
+    print("CipherText:", CipherText)
 
-text_Plain = 'th em at ch is ov er'
-text_Plain = removeSpaces(toLowerCase(text_Plain))
-PlainTextList = Diagraph(FillerLetter(text_Plain))
-if len(PlainTextList[-1]) != 2:
-	PlainTextList[-1] = PlainTextList[-1]+'z'
-
-key = "Home"
-print("Key text:", key)
-key = toLowerCase(key)
-Matrix = generateKeyTable(key, list1)
-
-print("Plain Text:", text_Plain)
-CipherList = encryptByPlayfairCipher(Matrix, PlainTextList)
-
-CipherText = ""
-for i in CipherList:
-	CipherText += i
-print("CipherText:", CipherText)
-
-# This code is Contributed by Boda_Venkata_Nikith
+if __name__ == '__main__':
+	main()
