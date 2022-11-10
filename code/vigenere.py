@@ -5,13 +5,13 @@ Created on Thu Nov  3 23:03:52 2022
 @author: ADMIN
 """
 
-# Python code to implement
-# Vigenere Cipher
+'''Mã hóa
+Bản rõ (P) và khóa (K) được thêm vào modulo 26.
+E i = (P i + K i ) mod 26
 
-# This function generates the
-# key in a cyclic manner until
-# it's length isn't equal to
-# the length of original text
+Giải mã 
+D i = (E i - K i + 26) mod 26'''
+
 def generateKey(string, key):
 	key = list(key)
 	if len(string) == len(key):
@@ -48,7 +48,7 @@ def originalText(cipher_text, key):
 	
 # Driver code
 if __name__ == "__main__":
-	string = "GEEKSFORGEEKS"
+	string = "HELLOaaaaaa"
 	keyword = "AYUSH"
 	key = generateKey(string, keyword)
 	cipher_text = cipherText(string,key)

@@ -165,7 +165,6 @@ def encryptByPlayfairCipher(Matrix, plainList):
 		CipherText.append(cipher)
 	return CipherText
 
-# Driver Code to test the above functions
 def main():
     text_Plain = 'th em at ch is ov er'
     text_Plain = removeSpaces(toLowerCase(text_Plain))
