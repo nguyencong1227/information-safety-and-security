@@ -1,7 +1,7 @@
 
 # Implementation of Affine Cipher in Python
 
-# Extended Euclidean Algorithm for finding modular inverse
+# Thuật toán Euclide mở rộng để tìm nghịch đảo mô -đun
 # eg: modinv(7, 26) = 15
 def egcd(a, b):
 	x,y, u,v = 0,1, 1,0
@@ -10,10 +10,10 @@ def egcd(a, b):
 		m, n = x-u*q, y-v*q
 		b,a, x,y, u,v = a,r, u,v, m,n
 	gcd = b
-	return gcd, x, y
+	return gcd, x
 
 def modinv(a, m):
-	gcd, x, y = egcd(a, m)
+	gcd, x = egcd(a, m)
 	if gcd != 1:
 		return None # modular inverse does not exist
 	else:
@@ -58,5 +58,3 @@ def main():
 
 if __name__ == '__main__':
 	main()
-# This code is contributed by
-# Bhushan Borole
